@@ -1,10 +1,10 @@
 import '@/theme/index.css';
 import ThemeRegistry from '@/utils/themeRegistry';
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import { Lexend_Deca } from 'next/font/google';
 
-const roboto = Roboto({
-  weight: ['100', '300', '400', '500', '700', '900'],
+const lexend = Lexend_Deca({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '900'],
   subsets: ['latin'],
 });
 
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="pt-Br">
       <ThemeRegistry options={{ key: 'mui-theme' }}>
-        <body className={roboto.className}>{children}</body>
+        <body className={lexend.className}>{children}</body>
       </ThemeRegistry>
     </html>
   );

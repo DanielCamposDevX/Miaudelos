@@ -48,9 +48,9 @@ export default function Input({
   ...rest
 }: props) {
   return (
-    <div className={`flex flex-col gap-1 ${width ?? ''}  relative`}>
+    <div className={`flex flex-col gap-1 ${width ?? ''} relative py-1`}>
       <label className="text-base font-normal text-[#9E9E9E] text-nowrap">
-        {label}
+        {placeholder}
         {tooltip && (
           <Tooltip
             title={tooltip}
@@ -93,6 +93,7 @@ export default function Input({
                 }
               }
               {...register}
+              label={label}
               required={required}
               disabled={disabled}
               onChange={onChange}
@@ -119,6 +120,7 @@ export default function Input({
               </InputAdornment>
             ),
           }}
+          label={label}
           multiline={multiline}
           rows={multiline ? 4 : 1}
           {...register}
@@ -129,9 +131,7 @@ export default function Input({
           onBlur={onBlur ?? register?.onBlur}
         />
       )}
-      {error && (
-        <span className="text-xs text-red-500 absolute -bottom-5">{error}</span>
-      )}
+      {error && <span className="text-xs text-red-500">{error}</span>}
     </div>
   );
 }

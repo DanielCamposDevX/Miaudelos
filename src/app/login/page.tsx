@@ -1,9 +1,10 @@
 import CatsBOXBG from '@/assets/backgrounds/CatBOXBG.jpg';
 import CatsBG from '@/assets/backgrounds/CatsBG.jpg';
 import Logo from '@/assets/logos/LogoName.png';
+import EntranceVideo from '@/assets/videos/entrance.mp4';
+import LoginForm from '@/components/forms/login&signup/form';
+import VideoLogin from '@/components/globals/video';
 import Image from 'next/image';
-import LoginForm from '../../components/forms/login&signup/form';
-import VideoLogin from './video';
 
 export default function Login() {
   return (
@@ -17,12 +18,14 @@ export default function Login() {
           zIndex: '-1',
           top: '0',
           left: '0',
+          height: '100%',
           width: '100%',
+          objectFit: 'cover',
         }}
       />
       <div className="w-full h-full flex flex-col items-center justify-around bg-black/10 z-0">
         <div
-          className={`border border-black rounded-2xl flex flex-col h-4/6 w-11/12 max-w-[400px] items-center justify-around relative overflow-hidden z-10 bg-white`}
+          className={`border rounded-2xl flex flex-col h-4/6 w-11/12 max-w-[400px] items-center justify-center gap-14 relative overflow-hidden z-10 border-black shadow-lg`}
         >
           <Image
             src={CatsBOXBG}
@@ -32,13 +35,17 @@ export default function Login() {
               zIndex: '-1',
               top: '0',
               left: '0',
+              height: '100%',
               width: '100%',
-              opacity: '0.22',
+              opacity: '1',
+              objectFit: 'cover',
             }}
           />
-          <Image src={Logo} alt={'Miaudelos'} />
+          <div className="w-10/12 border rounded-3xl bg-white flex justify-center items-center border-black shadow-lg">
+            <Image src={Logo} alt={'Miaudelos'} className="w-11/12" />
+          </div>
           <LoginForm />
-          <VideoLogin />
+          <VideoLogin Video={EntranceVideo} />
         </div>
       </div>
     </main>

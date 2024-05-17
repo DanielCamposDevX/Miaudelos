@@ -1,8 +1,8 @@
 import { createTheme } from '@mui/material/styles';
-import { Roboto } from 'next/font/google';
+import { Lexend_Deca } from 'next/font/google';
 
-const roboto = Roboto({
-  weight: ['100', '300', '400', '500', '700', '900'],
+const lexend = Lexend_Deca({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '900'],
   subsets: ['latin'],
 });
 
@@ -10,26 +10,27 @@ export const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#363E7A',
+      main: '#4527a0',
     },
     secondary: {
-      main: '#E98727',
+      main: '#ffee58',
     },
     error: {
-      main: '#DA3131',
+      main: '#ef5350',
     },
     warning: {
-      main: '#F4E02F',
+      main: '#ffa000',
     },
     info: {
-      main: '#0023DD',
+      main: '#29b6f6',
     },
     success: {
-      main: '#2DAB8C',
+      main: '#01a47a',
     },
+    divider: '#000000',
   },
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: lexend.style.fontFamily,
     h1: {
       fontSize: 32,
       fontWeight: 600,
@@ -59,5 +60,90 @@ export const theme = createTheme({
   },
   shape: {
     borderRadius: 8,
+  },
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#011B4F',
+        },
+      },
+    },
+    MuiAutocomplete: {
+      styleOverrides: {
+        noOptions: {
+          fontSize: 14,
+        },
+      },
+    },
+    MuiListItem: {
+      styleOverrides: {
+        root: {
+          fontSize: 18,
+          fontWeight: 400,
+          color: '#A0A1A1',
+          '&:hover': {
+            color: '#ffffff',
+          },
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          fontSize: 16,
+          fontWeight: 500,
+          color: '#424242',
+          textTransform: 'none',
+          ':hover': {
+            color: '#363E7A',
+            backgroundColor: '#F5F5F5',
+          },
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          fontSize: '14px',
+          fontWeight: 400,
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          boxShadow: 'none',
+          '&:hover': {
+            boxShadow: 'none',
+          },
+          '&.MuiButton-containedPrimary': {
+            fontWeight: 400,
+          },
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root': {
+            height: '58px',
+            fontSize: '16px',
+            fontWeight: 300,
+            '&:hover fieldset': {
+              borderColor: '#ED8A2A',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#363E7A',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            fontSize: '18px',
+            fontWeight: 400,
+          },
+        },
+      },
+    },
   },
 });

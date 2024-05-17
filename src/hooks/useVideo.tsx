@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 
-export default function useVideo(VideoDoc: string) {
+export default function useVideo() {
   const [videoFadeOut, setVideoFadeOut] = useState(false);
   const [videoExist, setVideoExist] = useState(true);
   const videoRef = useRef(null);
