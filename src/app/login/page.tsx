@@ -3,12 +3,13 @@ import CatsBG from '@/assets/backgrounds/CatsBG.jpg';
 import Logo from '@/assets/logos/LogoName.png';
 import EntranceVideo from '@/assets/videos/entrance.mp4';
 import LoginForm from '@/components/forms/login&signup/form';
+import DefaultProviders from '@/components/globals/defaultLayout';
 import VideoLogin from '@/components/globals/video';
 import Image from 'next/image';
 
 export default function Login() {
   return (
-    <main className="w-full h-screen relative overflow-hidden">
+    <DefaultProviders>
       <Image
         src={CatsBG}
         alt="Cats Background"
@@ -48,6 +49,6 @@ export default function Login() {
           <VideoLogin Video={EntranceVideo} />
         </div>
       </div>
-    </main>
+    </DefaultProviders>
   );
 }

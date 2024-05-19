@@ -1,4 +1,5 @@
 'use client';
+import { useToast } from '@/app/contexts/toast';
 import { type AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -25,10 +26,7 @@ export function useGet(serviceFunction: any, params?: any) {
         localStorage.removeItem('@eleng:colaborador');
         navigation.push('/login');
       }
-      setMessage(
-        String((errorT.response?.data as { message?: string })?.message) ??
-          'Erro inesperado, tente novamente mais tarde',
-      );
+      
     } finally {
       setLoading(false);
     }
@@ -48,6 +46,7 @@ export function usePost(
   sucessMessage?: string,
 ) {
   const router = useRouter();
+  const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState('');
   const [message, setMessage] = useState('');
@@ -66,6 +65,8 @@ export function usePost(
         setMessage(
           String((errorT.response?.data as { message?: string })?.message),
         );
+      toast({content: String(errorT?.response?.data) ?? '', severity: 'error'})
+
    
     }
     setLoading(false);

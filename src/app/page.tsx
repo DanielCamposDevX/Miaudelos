@@ -1,7 +1,5 @@
+import DefaultLayout from '@/components/globals/defaultLayout';
+
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hello World
-    </main>
-  );
+  return <DefaultLayout>Hello world</DefaultLayout>;
 }

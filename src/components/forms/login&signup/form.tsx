@@ -22,8 +22,7 @@ export default function LoginForm() {
   const { postData, loading } = usePost(Login, '/');
 
   async function handleFormSubmit(data: LoginFormType) {
-    const res = postData(data);
-    console.log(res);
+    postData(data);
   }
   const router = useRouter();
 

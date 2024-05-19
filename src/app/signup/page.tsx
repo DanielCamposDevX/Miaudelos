@@ -2,11 +2,12 @@ import CatsBG from '@/assets/backgrounds/CatsBG.jpg';
 import CreateBG from '@/assets/backgrounds/CreationBG.jpg';
 import CatsRegister from '@/assets/logos/registernobg.png';
 import SignupForm from '@/components/forms/login&signup/signupform';
+import DefaultProviders from '@/components/globals/defaultLayout';
 import Image from 'next/image';
 
 export default function Singup() {
   return (
-    <main className="w-full h-screen relative overflow-hidden">
+    <DefaultProviders>
       <Image
         src={CatsBG}
         alt="Cats Background"
@@ -48,6 +49,6 @@ export default function Singup() {
           <SignupForm />
         </div>
       </div>
-    </main>
+    </DefaultProviders>
   );
 }
