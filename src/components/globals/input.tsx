@@ -49,24 +49,6 @@ export default function Input({
 }: props) {
   return (
     <div className={`flex flex-col gap-1 ${width ?? ''} relative py-1`}>
-      <label className="text-base font-normal text-[#9E9E9E] text-nowrap">
-        {placeholder}
-        {tooltip && (
-          <Tooltip
-            title={tooltip}
-            sx={{
-              height: '20px',
-              width: '20px',
-              marginLeft: '5px',
-              marginBottom: '5px',
-            }}
-          >
-            <IconButton>
-              <InfoOutlined sx={{ height: '20px', color: '#363E7A' }} />
-            </IconButton>
-          </Tooltip>
-        )}
-      </label>
       {mask && (
         <InputMask
           mask={mask}
@@ -82,20 +64,35 @@ export default function Input({
               placeholder={placeholder}
               {...rest}
               InputProps={
-                sufix && {
+                sufix ||
+                (tooltip && {
                   endAdornment: (
                     <InputAdornment position="end">
                       <Typography fontSize={16} color={'#212121'}>
                         {sufix}
+                        {tooltip && (
+                          <Tooltip
+                            title={tooltip}
+                            sx={{
+                              height: '20px',
+                              width: '20px',
+                            }}
+                          >
+                            <IconButton>
+                              <InfoOutlined
+                                sx={{ height: '20px', color: '#363E7A' }}
+                              />
+                            </IconButton>
+                          </Tooltip>
+                        )}
                       </Typography>
                     </InputAdornment>
                   ),
-                }
+                })
               }
               {...register}
               label={label}
               required={required}
-              disabled={disabled}
               onChange={onChange}
               multiline={multiline}
               rows={multiline ? 4 : 1}
@@ -112,13 +109,29 @@ export default function Input({
           placeholder={placeholder}
           variant="outlined"
           InputProps={{
-            endAdornment: sufix && (
-              <InputAdornment position="end">
-                <Typography fontSize={16} color={'#CDCDCD'}>
-                  {sufix}
-                </Typography>
-              </InputAdornment>
-            ),
+            endAdornment:
+              sufix ||
+              (tooltip && (
+                <InputAdornment position="end">
+                  <Typography fontSize={16} color={'#CDCDCD'}>
+                    {sufix}
+                    {tooltip && (
+                      <Tooltip
+                        title={tooltip}
+                        sx={{
+                          height: '20px',
+                          width: '20px',
+                          marginBottom: '2px',
+                        }}
+                      >
+                        <IconButton>
+                          <InfoOutlined color="info" sx={{ height: '20px' }} />
+                        </IconButton>
+                      </Tooltip>
+                    )}
+                  </Typography>
+                </InputAdornment>
+              )),
           }}
           label={label}
           multiline={multiline}

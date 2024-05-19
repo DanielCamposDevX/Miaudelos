@@ -1,7 +1,6 @@
 'use client';
-import LoadingVideo from '@/assets/videos/loading.mp4';
 import Input from '@/components/globals/input';
-import VideoLogin from '@/components/globals/video';
+import LoadingGifs from '@/components/globals/loadingGif';
 import { usePost } from '@/hooks/useApi';
 import {
   LoginFormSchema,
@@ -10,6 +9,7 @@ import {
 import { Login } from '@/services/login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoadingButton } from '@mui/lab';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
 export default function LoginForm() {
@@ -25,17 +25,18 @@ export default function LoginForm() {
     const res = postData(data);
     console.log(res);
   }
+  const router = useRouter();
 
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
       className="flex flex-col h-3/6 w-10/12 justify-around items-center bg-white border rounded-2xl border-black shadow-lg"
     >
-      {loading && <VideoLogin Video={LoadingVideo} loop />}
+      {loading && <LoadingGifs />}
       <div className="flex flex-col gap-1  w-10/12 items-center">
         <Input
           label={'Email'}
-          placeholder={''}
+          placeholder={'email@email.com'}
           error={errors.email?.message}
           register={register('email')}
           disabled={false}
@@ -43,7 +44,7 @@ export default function LoginForm() {
         />
         <Input
           label={'Senha'}
-          placeholder={''}
+          placeholder={'******'}
           error={errors.password?.message}
           register={register('password')}
           disabled={false}
@@ -58,7 +59,7 @@ export default function LoginForm() {
         <p
           className="text-sm cursor-pointer text-purple-600 underline"
           onClick={() => {
-            alert('CONTA');
+            router.push('/signup');
           }}
         >
           Ou clique aqui para criar uma conta
