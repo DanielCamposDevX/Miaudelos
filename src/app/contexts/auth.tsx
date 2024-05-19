@@ -1,3 +1,4 @@
+import { api } from '@/utils/api';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   ReactNode,
@@ -47,6 +48,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     }
     const name = localStorage.getItem('name');
     setUser({ token, name: name ?? '' });
+    api.defaults.headers.authorization = `Bearer ${token}`;
   }, []);
 
   return (

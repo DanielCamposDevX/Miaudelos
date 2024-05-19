@@ -15,6 +15,7 @@ export default function LoadingGifs() {
       <Image
         alt="loading gif"
         src={gif}
+        unoptimized
         style={{
           position: 'absolute',
           top: 0,
