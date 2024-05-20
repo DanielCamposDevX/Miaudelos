@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function Singup() {
   return (
     <DefaultProviders>
-      <div className="w-full h-screen relative overflow-hidden">
+      <div className="w-full h-dvh relative">
         <Image
           src={CatsBG}
           alt="Cats Background"
@@ -18,14 +18,15 @@ export default function Singup() {
             zIndex: '-1',
             top: '0',
             left: '0',
+            minHeight: '900px',
             height: '100%',
             width: '100%',
             objectFit: 'cover',
           }}
         />
-        <div className="w-full h-full flex flex-col items-center justify-around bg-black/10 z-0">
+        <div className="w-full min-h-[900px] h-full flex flex-col items-center justify-around bg-black/10 z-0">
           <div
-            className={`border rounded-2xl py-10 flex flex-col w-11/12 max-w-[400px] items-center justify-center relative z-10 border-black shadow-lg bg-[#E4E3E0] overflow-hidden`}
+            className={`border rounded-2xl py-10 flex flex-col min-h-[600px] w-11/12 max-w-[400px] items-center justify-center relative z-10 border-black shadow-lg bg-[#E4E3E0] overflow-hidden`}
           >
             <Image
               src={CreateBG}

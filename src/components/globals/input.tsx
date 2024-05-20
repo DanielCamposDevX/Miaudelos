@@ -14,12 +14,12 @@ import InputMask from 'react-input-mask';
 interface props extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
   label: string;
-  error: any;
+  error?: any;
   mask?: string;
   type?: string;
   required?: boolean;
-  register: UseFormRegisterReturn<string>;
-  disabled: boolean;
+  register?: UseFormRegisterReturn<string>;
+  disabled?: boolean;
   width?: string;
   onChange?: (e: any) => void;
   multiline?: boolean;

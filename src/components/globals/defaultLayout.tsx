@@ -11,7 +11,7 @@ export default function DefaultProviders({
   const { user } = useAuth();
 
   return (
-    <main className="w-full min-h-screen relative overflow-hidden">
+    <main className="w-full min-h-dvh relative overflow-scroll">
       {children}
     </main>
   );

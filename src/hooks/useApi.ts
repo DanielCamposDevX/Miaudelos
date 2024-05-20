@@ -1,4 +1,5 @@
 'use client';
+import { useAuth } from '@/app/contexts/auth';
 import { useToast } from '@/app/contexts/toast';
 import { type AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
@@ -6,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 export function useGet(serviceFunction: any, params?: any) {
 
+  const { user } = useAuth();
   const navigation = useRouter();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<any>({});
@@ -34,7 +36,7 @@ export function useGet(serviceFunction: any, params?: any) {
 
   useEffect(() => {
     void fetchData(serviceFunction, params);
-  }, []);
+  }, [user?.token]);
 
   return { message, loading, data, fetchData };
 }

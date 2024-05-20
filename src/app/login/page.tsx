@@ -10,7 +10,7 @@ import Image from 'next/image';
 export default function Login() {
   return (
     <DefaultProviders>
-      <div className="w-full h-screen relative overflow-hidden">
+      <div className="w-full h-dvh relative">
         <Image
           src={CatsBG}
           alt="Cats Background"
@@ -20,14 +20,15 @@ export default function Login() {
             zIndex: '-1',
             top: '0',
             left: '0',
+            minHeight: '500px',
             height: '100%',
             width: '100%',
             objectFit: 'cover',
           }}
         />
-        <div className="w-full h-full flex flex-col items-center justify-around bg-black/10 z-0">
+        <div className="w-full min-h-[500px] h-full flex flex-col items-center justify-around bg-black/10 z-0">
           <div
-            className={`border rounded-2xl flex flex-col h-4/6 w-11/12 max-w-[400px] items-center justify-center gap-14 relative overflow-hidden z-10 border-black shadow-lg`}
+            className={`border rounded-2xl flex flex-col min-h-[500px] h-4/6 w-11/12 max-w-[400px] items-center justify-center gap-14 relative overflow-hidden z-10 border-black shadow-lg`}
           >
             <Image
               src={CatsBOXBG}
